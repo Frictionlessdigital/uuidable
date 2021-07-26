@@ -14,5 +14,5 @@ class AlternativeDummyModel extends Model
      *
      * @var string
      */
-    const UUID = 'diuu';
+    public const UUID = 'diuu';
 }
