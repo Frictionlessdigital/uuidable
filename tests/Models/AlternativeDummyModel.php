@@ -14,5 +14,5 @@ class AlternativeDummyModel extends Model
      *
      * @var string
      */
-    public static $UUID = 'diuu';
+    public const UUID = 'diuu';
 }
