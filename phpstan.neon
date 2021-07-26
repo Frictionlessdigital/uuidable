@@ -1,0 +1,12 @@
+includes:
+    - ./vendor/nunomaduro/larastan/extension.neon
+
+parameters:
+    level: 6
+    checkMissingIterableValueType: false
+    ignoreErrors:
+        - '#Access to an undefined property#'
+        - '#Unsafe usage of new static#'
+        - '#Call to an undefined method Illuminate\\Support\\HigherOrder#'
+    parallel:
+        processTimeout: 300.0
