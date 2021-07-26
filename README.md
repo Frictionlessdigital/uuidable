@@ -114,4 +114,4 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 
 ___
 
-<p align="center"><a href="//frictionlesssolutions.com" title="Fricitonless Solutions Inc"><img src="./resources/docs/gramma.png"></a></p>
+<p align="center"><a href="http://frictionlesssolutions.com" title="Fricitonless Solutions Inc."><img src="./resources/docs/gramma.png"></a></p>
