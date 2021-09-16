@@ -5,7 +5,7 @@ Add [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) behavior
 ## Installation
 
 ```bash
-composer require "frictionlessditial\uuidable":"^1.0"
+composer require "frictionlessditial/uuidable":"^1.0"
 ```
 
 Note that root namespace for the package is `Fls` not `Frictionlessditial`.
