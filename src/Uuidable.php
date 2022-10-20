@@ -19,10 +19,7 @@ trait Uuidable
     public static function bootUuidable()
     {
         static::creating(function (Model $model) {
-            // Get the field name
-            $uuidFieldName = $model->getUuidColumn();
-            // Force fill value
-            $model->$uuidFieldName = (string) Str::uuid();
+            $model->{$model->getUuidColumn()} = $model->{$model->getUuidColumn()} ?? (string) Str::uuid();
         });
     }
 

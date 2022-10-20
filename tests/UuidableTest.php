@@ -7,6 +7,16 @@ use Fls\Uuidable\Tests\Models\DummyModel;
 class UuidableTest extends TestCase
 {
     /** @test */
+    public function it_will_not_overwrite_uuid_if_alrady_generated(): void
+    {
+        $model = tap(DummyModel::make([]), function (DummyModel $model) {
+            $model->setAttribute('uuid', '78c493ae-4f52-4eeb-b765-9c212e137fc3')->save();
+        });
+
+        $this->assertEquals('78c493ae-4f52-4eeb-b765-9c212e137fc3', $model->{$model->getUuidColumn()});
+    }
+
+    /** @test */
     public function it_will_add_uuid_to_new_model()
     {
         $model = DummyModel::create([]);
