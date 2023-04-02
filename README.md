@@ -8,7 +8,7 @@ Add [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) behavior
 composer require "frictionlessdigital/uuidable":"^1.0"
 ```
 
-Note that root namespace for the package is `Fls` not `Frictionlessditial`.
+**Note that root namespace for the package is `Fls` not `Frictionlessditial`.**
 
 ### Config
 
