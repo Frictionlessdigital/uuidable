@@ -1,49 +1,7 @@
-# --------------------------
-#
-# Laravel specific
-#
-# --------------------------
 .idea/
-/build
-/coverage
-/dev
-/nbproject/private/
-/node_modules
-/vendor
-
-# --------------------------
-#
-# Ignore environment sets
-#
-# --------------------------
-.env
-.env.backup
-.env.*.php
-docker-compose.override.yml
-Homestead.json
-Homestead.yaml
-
-# --------------------------
-#
-# Composer:
-# Do not maintain composer integrity
-#
-# --------------------------
-composer.lock
-
-# --------------------------
-#
-# Ignore test results
-#
-# --------------------------
 .php-cs-fixer.cache
 .phpunit.cache/
 .phpunit.result.cache
-
-# --------------------------
-#
-# Ignore Logs
-#
-# --------------------------
-npm-debug.log
-yarn-error.log
+build/
+composer.lock
+vendor/
