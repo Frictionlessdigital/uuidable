@@ -2,7 +2,6 @@
 
 namespace Fls\Uuidable\Tests;
 
-use Exception;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Foundation\Exceptions\Handler;
@@ -76,11 +75,11 @@ abstract class TestCase extends OrchestraTestCase
             {
             }
 
-            public function report(Exception $e)
+            public function report(\Exception $e)
             {
             }
 
-            public function render($request, Exception $exception)
+            public function render($request, \Exception $exception)
             {
                 throw $exception;
             }
