@@ -4,26 +4,24 @@ namespace Fls\Uuidable\Tests;
 
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Exceptions\Handler;
 use Illuminate\Support\Facades\Schema;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
+use PHPUnit\Framework\Attributes\PreCondition;
 
 abstract class TestCase extends OrchestraTestCase
 {
-    /**
-     * @return void
-     */
-    public function setUp(): void
+    #[PreCondition()]
+    protected function prepareTests(): void
     {
-        parent::setUp();
-
         $this->setUpDatabase();
     }
 
     /**
      * Set up the environment.
      *
-     * @param \Illuminate\Foundation\Application $app
+     * @param Application $app
      */
     protected function getEnvironmentSetUp($app)
     {
@@ -38,9 +36,6 @@ abstract class TestCase extends OrchestraTestCase
         });
     }
 
-    /**
-     * @return void
-     */
     protected function setUpDatabase()
     {
         $this->createTables([
@@ -49,10 +44,6 @@ abstract class TestCase extends OrchestraTestCase
         ]);
     }
 
-    /**
-     * @param array $tableNames
-     * @return void
-     */
     protected function createTables(array $tableNames)
     {
         collect($tableNames)->each(function (string $field, string $tableName) {
@@ -65,19 +56,13 @@ abstract class TestCase extends OrchestraTestCase
         });
     }
 
-    /**
-     * @return void
-     */
     protected function disableExceptionHandling()
     {
-        $this->app->instance(ExceptionHandler::class, new class() extends Handler {
-            public function __construct()
-            {
-            }
+        $this->app->instance(ExceptionHandler::class, new class() extends Handler
+        {
+            public function __construct() {}
 
-            public function report(\Exception $e)
-            {
-            }
+            public function report(\Exception $e) {}
 
             public function render($request, \Exception $exception)
             {

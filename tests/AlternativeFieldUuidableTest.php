@@ -3,10 +3,11 @@
 namespace Fls\Uuidable\Tests;
 
 use Fls\Uuidable\Tests\Models\AlternativeDummyModel as DummyModel;
+use PHPUnit\Framework\Attributes\Test;
 
 class AlternativeFieldUuidableTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function it_will_add_uuid_to_new_model()
     {
         $model = DummyModel::create([]);
@@ -15,7 +16,7 @@ class AlternativeFieldUuidableTest extends TestCase
         $this->assertIsString($model->getAttribute($model->getUuidColumn()));
     }
 
-    /** @test */
+    #[Test]
     public function it_will_find_a_model_by_uuid()
     {
         $model = DummyModel::create([]);
@@ -27,7 +28,7 @@ class AlternativeFieldUuidableTest extends TestCase
         $this->assertEquals($uuid, $found->getAttribute($model->getUuidColumn()));
     }
 
-    /** @test */
+    #[Test]
     public function it_will_find_models_by_uuids()
     {
         $modelA = DummyModel::create([]);
