@@ -8,16 +8,13 @@ use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Exceptions\Handler;
 use Illuminate\Support\Facades\Schema;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
+use PHPUnit\Framework\Attributes\PreCondition;
 
 abstract class TestCase extends OrchestraTestCase
 {
-    /**
-     * @return void
-     */
-    protected function setUp(): void
+    #[PreCondition()]
+    protected function prepareTests(): void
     {
-        parent::setUp();
-
         $this->setUpDatabase();
     }
 
@@ -39,9 +36,6 @@ abstract class TestCase extends OrchestraTestCase
         });
     }
 
-    /**
-     * @return void
-     */
     protected function setUpDatabase()
     {
         $this->createTables([
@@ -50,10 +44,6 @@ abstract class TestCase extends OrchestraTestCase
         ]);
     }
 
-    /**
-     * @param array $tableNames
-     * @return void
-     */
     protected function createTables(array $tableNames)
     {
         collect($tableNames)->each(function (string $field, string $tableName) {
@@ -66,9 +56,6 @@ abstract class TestCase extends OrchestraTestCase
         });
     }
 
-    /**
-     * @return void
-     */
     protected function disableExceptionHandling()
     {
         $this->app->instance(ExceptionHandler::class, new class() extends Handler
