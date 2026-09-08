@@ -47,7 +47,7 @@ trait Uuidable
      * First the value by their Uuid.
      *
      * @param string $uuid
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @return Builder
      */
     public static function findByUuid(string $uuid, array $columns = ['*']): ?Model
     {
@@ -57,9 +57,9 @@ trait Uuidable
     /**
      * Scope the value by their Uuid.
      *
-     * @param \Illuminate\Database\Eloquent\Builder $builder
-     * @param string|array|\Illuminate\Database\Eloquent\Collection|\Illuminate\Contracts\Support\Arrayable $uuid
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @param Builder $builder
+     * @param string|array|Collection|Arrayable $uuid
+     * @return Builder
      */
     public function scopeWhereUuid(Builder $builder, $uuid): Builder
     {
